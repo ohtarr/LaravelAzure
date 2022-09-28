@@ -17,6 +17,7 @@ class AlterUsersTableForAzureAd extends Migration
             // Users must be able to support blank passwords for external identity
             $table->string('name')->nullable()->change();
             $table->string('password')->nullable()->change();
+            $table->string('email')->nullable()->change();
             // We need a new string field to store the oauth provider unique id in
             $table->string('azure_id', 36)
                   ->after('email');
