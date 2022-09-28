@@ -18,7 +18,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->installOauthTokenGuardMiddleware();
 
         $this->publishes([
-            __DIR__.'/../publish/2022_09_27_200151_alter_users_table_for_azure_ad.php'                     => $this->app->databasePath().'/migrations/2022_09_27_200151_alter_users_table_for_azure_ad.php',
+            __DIR__.'/publish/2022_09_27_200151_alter_users_table_for_azure_ad.php'                     => $this->app->databasePath().'/migrations/2022_09_27_200151_alter_users_table_for_azure_ad.php',
         ]);
 
     }
