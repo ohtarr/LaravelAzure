@@ -15,7 +15,14 @@
     ],
     "autoload": {
         "psr-4": {
-            "Ohtarr\\LaravelAzure\\": "src"
+            "Ohtarr\\LaravelAzure\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ohtarr\\LaravelAzure\\ServiceProvider"
+            ]
         }
     }
 }
