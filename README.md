@@ -1,30 +1,31 @@
-Laravel Azure AD Token based authentication and authorization.
+## Laravel Azure AD Token based authentication and authorization.
 
 Add Azure AD Token Validation and role assignment via the following php packages:
-https://github.com/ohtarr/Azure - AzureAD Authentication and Token Validation
-https://github.com/JosephSilber/bouncer - Authorization
 
-Installation:
+	https://github.com/ohtarr/Azure - AzureAD Authentication and Token Validation
+	https://github.com/JosephSilber/bouncer - Authorization
 
-#Add library to your Laravel project:
-composer require ohtarr/LaravelAzure
+## Installation:
 
-#you must have an application registration in Azure with role based permissions setup.
-#Add the necessary env vars for Azure Active Directory OAUTH:
-AZURE_AD_TENANT="MyAwesomeAzureADTenant"
-AZURE_AD_CLIENT_ID="1234abcd-12ab-34cd-56ef-123456abcdef"
-AZURE_AD_CLIENT_SECRET="123456789abcdef123456789abcdef\123456789abc="
+#### Add library to your Laravel project:
+	composer require ohtarr/LaravelAzure
 
-# Publish LaravelAzure files - migration to add azure_id to users table, addPermission command to easily add bouncer permissions.
-php artisan vendor:publish --provider="Ohtarr\LaravelAzure\ServiceProvider" --force
+#### You must have an application registration in Azure with role based permissions setup.
+#### Add the necessary env vars for Azure Active Directory OAUTH:
+	AZURE_AD_TENANT="MyAwesomeAzureADTenant"
+	AZURE_AD_CLIENT_ID="1234abcd-12ab-34cd-56ef-123456abcdef"
+	AZURE_AD_CLIENT_SECRET="123456789abcdef123456789abcdef\123456789abc="
 
-# Publish Bouncer files - Standard bouncer migrations to add tables for authorization control
-php artisan vendor:publish --provider="Silber\Bouncer\BouncerServiceProvider" --force
+#### Publish LaravelAzure files - migration to add azure_id to users table, addPermission command to easily add bouncer permissions.
+	php artisan vendor:publish --provider="Ohtarr\LaravelAzure\ServiceProvider" --force
 
-# migrate
-php artisan migrate
+#### Publish Bouncer files - Standard bouncer migrations to add tables for authorization control
+	php artisan vendor:publish --provider="Silber\Bouncer\BouncerServiceProvider" --force
 
-# Add permissions via addPermission command, or add bouncer permissions your own way...
+#### Migrate
+	php artisan migrate
+
+#### Add permissions via addPermission command, or add bouncer permissions your own way...
 	# modify addPermission file
 	nano app/Console/Commands/addPermission.php
 	
@@ -36,14 +37,14 @@ php artisan migrate
 	# execute addPermission
 	php artisan LaravelAzure:addPermission write Admin
 
-# add auth:api middleware to controllers or routes.  Controller example below.
+#### add auth:api middleware to controllers or routes.  Controller example below.
 	#controller constructor:
 	public function __construct()
 	{
 		$this->middleware('auth:api');
 	}
 
-# add authorization check to controller methods as needed
+#### add authorization check to controller methods as needed
 
 	public function index(Request $request)
 	{
