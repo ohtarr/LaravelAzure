@@ -12,9 +12,9 @@ Add Azure AD Token Validation and role assignment via the following php packages
 
 #### You must have an application registration in Azure with role based permissions setup.
 #### Add the necessary env vars for Azure Active Directory OAUTH:
-	AZURE_AD_TENANT="MyAwesomeAzureADTenant"
-	AZURE_AD_CLIENT_ID="1234abcd-12ab-34cd-56ef-123456abcdef"
-	AZURE_AD_CLIENT_SECRET="123456789abcdef123456789abcdef\123456789abc="
+	AZURE_AD_TENANT=MyAwesomeAzureADTenant
+	AZURE_AD_CLIENT_ID=1234abcd-12ab-34cd-56ef-123456abcdef
+	AZURE_AD_CLIENT_SECRET=123456789abcdef123456789abcdef\123456789abc=
 
 #### Publish LaravelAzure files - migration to add azure_id to users table, addPermission command to easily add bouncer permissions.
 	php artisan vendor:publish --provider="Ohtarr\LaravelAzure\ServiceProvider" --force
