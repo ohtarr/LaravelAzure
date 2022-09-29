@@ -25,6 +25,16 @@ Add Azure AD Token Validation and role assignment via the following php packages
 #### Migrate
 	php artisan migrate
 
+#### Add Bouncer to User model at /app/Models/User.php
+	namespace App\Models;
+	
+	use Silber\Bouncer\Database\HasRolesAndAbilities;
+
+	class User extends Authenticatable
+	{
+    		use HasRolesAndAbilities;
+	}
+
 #### Add permissions via addPermission command, or add bouncer permissions your own way...
 	# modify addPermission file
 	nano app/Console/Commands/addPermission.php
