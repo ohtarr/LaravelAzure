@@ -41,6 +41,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     protected function installOauthTokenGuardMiddleware()
     {
         config(['auth.guards.api.driver' => 'oauthtoken']);
+        config(['auth.guards.api.provider' => 'users']);
         Auth::extend('oauthtoken', function ($app, $name, array $config) {
             $userProvider = Auth::createUserProvider($config['provider']);
 
