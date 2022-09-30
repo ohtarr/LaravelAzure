@@ -1,0 +1,5 @@
+.env
+Homestead.yaml
+vendor/
+etc/
+after.sh

@@ -137,6 +137,17 @@ class OauthTokenGuard implements Guard
         return is_null($this->user);
     }
 
+	/**
+     * Determine if the guard has a user instance.
+     *
+     * @return bool
+     */
+
+    public function hasUser()
+    {
+
+    }
+
     /**
      * Set the current user.
      *
